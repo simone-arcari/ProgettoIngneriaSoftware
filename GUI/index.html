@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Impiegato</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Dashboard principale -->
+    <div class="container" id="dashboard" style="display: block;">
+        <h1>Dashboard</h1>
+        <div class="button-grid">
+            <button class="btn" id="btn-registrazione">Registrazione di nuovi clienti</button>
+            <button class="btn" id="btn-rinnovo">Rinnovo abbonamenti</button>
+            <button class="btn" id="btn-disiscrizione">Disiscrizione da attività sportive</button>
+            <button class="btn" id="btn-calcolo-retta">Calcolo del costo della retta mensile</button>
+            <button class="btn" id="btn-stampa-liste">Stampa delle liste degli iscritti</button>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <!-- Finestra di registrazione -->
+    <div class="container" id="registrazione" style="display: none;">
+        <h1>Registrazione Nuovo Cliente</h1>
+        <form id="form-registrazione">
+            <div class="form-group">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required>
+            </div>
+            <div class="form-group">
+                <label for="cognome">Cognome:</label>
+                <input type="text" id="cognome" name="cognome" required>
+            </div>
+            <div class="form-group">
+                <label for="matricola">Matricola:</label>
+                <input type="text" id="matricola" name="matricola" required>
+            </div>
+            <div class="button-grid">
+                <button type="submit" class="btn">Conferma</button>
+                <button type="button" class="btn" id="btn-annulla-registrazione">Annulla</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Finestra di conferma registrazione -->
+    <div class="container" id="conferma-registrazione" style="display: none;">
+        <h1>Registrazione Effettuata</h1>
+        <div class="icon-container">
+            <img src="check-icon.png" alt="Spunta" class="check-icon">
+        </div>
+        <div class="button-grid">
+            <button type="button" class="btn" id="btn-seleziona-attivita-conferma-registrazione">Seleziona Attività Sportive</button>
+            <button type="button" class="btn" id="btn-fine-conferma-registrazione">Fine</button>
+        </div>
+    </div>
+    
+    <!-- Finestra di errore registrazione -->
+    <div class="container" id="errore-registrazione" style="display: none;">
+        <h1>Errore Registrazione</h1>
+        <div class="icon-container">
+            <img src="error-icon.jpeg" alt="Spunta" class="check-icon">
+        </div>
+        <div class="button-grid">
+            <button type="button" class="btn" id="btn-prova-rinnovo">Prova Rinnovo Abbonamento</button>
+            <button type="button" class="btn" id="btn-fine-errore-registrazione">Fine</button>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <!-- Finestra di rinnovo abbonamenti -->
+    <div class="container" id="rinnovo" style="display: none;">
+        <h1>Rinnovo Abbonamenti</h1>
+        <form id="form-rinnovo">
+            <div class="form-group">
+                <label for="matricola-rinnovo">Matricola:</label>
+                <input type="text" id="matricola-rinnovo" name="matricola" required>
+            </div>
+            <div class="button-grid">
+                <button type="submit" class="btn" id="btn-conferma-rinnovo">Conferma</button>
+                <button type="button" class="btn" id="btn-annulla-rinnovo">Annulla</button>
+            </div>
+        </form>
+    </div>
+
+     <!-- Finestra di errore rinnovo -->
+     <div class="container" id="errore-rinnovo" style="display: none;">
+        <h1>Errore Rinnovo</h1>
+        <div class="icon-container">
+            <img src="error-icon.jpeg" alt="Spunta" class="check-icon">
+        </div>
+        <div class="button-grid">
+            <button type="button" class="btn" id="btn-fine-errore-rinnovo">Fine</button>
+        </div>
+    </div>   
+
+
+
+
+
+
+    <!-- Finestra di disiscrizione da attività sportive -->
+    <div class="container" id="disiscrizione" style="display: none;">
+        <h1>Disiscrizione attività Sportive</h1>
+        <form id="form-disiscrizione">
+            <div class="form-group">
+                <label for="matricola-disiscrizione">Matricola:</label>
+                <input type="text" id="matricola-disiscrizione" name="matricola" required>
+            </div>
+            <div class="button-grid">
+                <button type="submit" class="btn" id="btn-conferma-disiscrizione">Conferma</button>
+                <button type="button" class="btn" id="btn-annulla-disiscrizione">Annulla</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Finestra di conferma disiscrizione -->
+    <div class="container" id="conferma-disiscrizione" style="display: none;">
+        <h1>Disiscrizione Effettuata</h1>
+        <div class="icon-container">
+            <img src="check-icon.png" alt="Spunta" class="check-icon">
+        </div>
+        <div class="button-grid">
+            <button type="button" class="btn" id="btn-fine-conferma-disiscrizione">Fine</button>
+        </div>
+    </div>
+
+    <!-- Finestra di errore disiscrizione -->
+    <div class="container" id="errore-disiscrizione" style="display: none;">
+        <h1>Errore Disiscrizione</h1>
+        <div class="icon-container">
+            <img src="error-icon.jpeg" alt="Spunta" class="check-icon">
+        </div>
+        <div class="button-grid">
+            <button type="button" class="btn" id="btn-fine-errore-disiscrizione">Fine</button>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <!-- Finestra di calcolo retta mensile -->
+    <div class="container" id="calcolo-retta" style="display: none;">
+        <h1>Calcolo del Costo della Retta Mensile</h1>
+        <form id="form-calcolo-retta">
+            <div class="form-group">
+                <label>Seleziona le attività:</label>
+                <div>
+                    <input type="checkbox" id="attivita1" name="attivita" value="attivita1">
+                    <label for="attivita1">Nuoto</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="attivita2" name="attivita" value="attivita2">
+                    <label for="attivita2">Atletica Leggera</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="attivita3" name="attivita" value="attivita3">
+                    <label for="attivita3">BodyBuilding</label>
+                </div>
+            </div>
+            <div id="risultato" class="result" style="display: block;">
+                <h3>Risultato:</h3>
+                <p id="risultato-testo">200$[esempio]</p>
+            </div>
+            <div class="button-grid">
+                <button type="button" class="btn" id="btn-calcola-retta">Calcola Retta</button>
+                <button type="button" class="btn" id="btn-annulla-calcolo-retta">Annulla</button>
+            </div>
+        </form>
+    </div>
+
+
+
+
+
+
+    <!-- Finestra di stampa delle liste -->
+    <div class="container" id="stampa-liste" style="display: none;">
+        <h1>Stampa delle Liste degli Iscritti</h1>
+        <form id="form-stampa-liste">
+            <div class="form-group">
+                <label>Seleziona una lista da stampare:</label>
+                <div>
+                    <input type="radio" id="lista0" name="lista" value="lista0" checked>
+                    <label for="lista1">Lista Generale Iscritti</label>
+                </div>
+                <div>
+                    <input type="radio" id="lista1" name="lista" value="lista1">
+                    <label for="lista1">Lista Iscritti Nuoto</label>
+                </div>
+                <div>
+                    <input type="radio" id="lista2" name="lista" value="lista2">
+                    <label for="lista2">Lista Iscritti Atletica Leggera</label>
+                </div>
+                <div>
+                    <input type="radio" id="lista3" name="lista" value="lista3">
+                    <label for="lista3">Lista Iscritti BodyBuilding</label>
+                </div>
+            </div>
+            <div class="button-grid">
+                <button type="button" class="btn" id="btn-conferma-stampa-liste">Conferma</button>
+                <button type="button" class="btn" id="btn-annulla-stampa-liste">Annulla</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Finestra di visualizzazione della lista -->
+    <div class="container" id="visualizza-lista" style="display: none;">
+        <h1 id="titolo-lista">Titolo Lista</h1>
+        <ul id="lista-iscritti">
+            <!-- Gli elementi della lista verranno aggiunti dinamicamente -->
+        </ul>
+        <div class="button-grid">
+            <button type="button" class="btn" id="btn-torna-indietro">Torna Indietro</button>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <!-- Finestra di selezione attività sportive -->
+    <div class="container" id="selezione-attivita" style="display: none;">
+        <h1>Selezione Attività Sportive</h1>
+        <form id="form-selezione-attivita">
+            <div class="form-group">
+                <label>Seleziona le attività:</label>
+                <div>
+                    <input type="checkbox" id="attivita-nuoto" name="attivita" value="attivita1">
+                    <label for="attivita1">Nuoto</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="attivita-atletica" name="attivita" value="attivita2">
+                    <label for="attivita2">Atletica Leggera</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="attivita-bodybuilding" name="attivita" value="attivita3">
+                    <label for="attivita3">BodyBuilding</label>
+                </div>
+            </div>
+            <div id="costo" class="result" style="display: block;">
+                <h3>Costo:</h3>
+                <p id="risultato-testo">100$[esempio]</p>
+            </div>
+            <div class="button-grid">
+                <button type="button" class="btn" id="btn-acquista">Acquista</button>
+                <button type="button" class="btn" id="btn-annulla-acquisto">Annulla</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Finestra di conferma acquisto -->
+    <div class="container" id="conferma-acquisto" style="display: none;">
+        <h1>Acquisto Effettuato</h1>
+        <div class="icon-container">
+            <img src="check-icon.png" alt="Spunta" class="check-icon">
+        </div>
+        <div class="button-grid">
+            <button type="button" class="btn" id="btn-fine-conferma-acquisto">Fine</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

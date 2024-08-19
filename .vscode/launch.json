@@ -1,0 +1,13 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "type": "java",
+        "name": "JavaFX Launch",
+        "request": "launch",
+        "mainClass": "Applicazione",
+        "vmArgs": "--module-path javafx-sdk-22.0.2/lib --add-modules javafx.controls,javafx.web Applicazione.java"
+      }
+    ]
+  }
+  

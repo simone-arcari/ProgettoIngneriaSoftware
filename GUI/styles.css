@@ -1,0 +1,186 @@
+/* Reset di base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Stile generale del body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Contenitore principale */
+.container {
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    max-height: 100vh;
+}
+
+
+
+/* Stile del titolo */
+.container h1 {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    font-size: 40px;
+    color: #333;
+}
+
+/* Griglia dei pulsanti */
+.button-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+/* Stile dei pulsanti */
+.btn {
+    padding: 15px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Effetto hover sui pulsanti */
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* Form gruppi di input */
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+/* Stile dei campi di input */
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Layout responsive: griglia a due colonne per schermi più grandi */
+@media (min-width: 600px) {
+    .button-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Layout responsive: griglia a singola colonna per schermi più piccoli */
+@media (max-width: 599px) {
+    .btn {
+        font-size: 14px;
+    }
+}
+
+/* Contenitore della lista con dimensioni massime e barra di scorrimento */
+#lista-iscritti {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+    max-height: calc(90vh - 200px); /* Altezza massima della lista */
+    overflow-y: auto; /* Aggiunge la barra di scorrimento verticale se necessario */
+    border: 1px solid #ccc; /* Bordo intorno alla lista */
+    border-radius: 5px;
+}
+
+/* Stile degli elementi della lista */
+#lista-iscritti li {
+    padding: 10px;
+    margin: 0; /* Rimuove il margine tra gli elementi */
+    border-bottom: 1px solid #ddd; /* Linea sottile tra gli elementi */
+    background-color: #f9f9f9;
+    font-size: 16px;
+    color: #333;
+    transition: background-color 0.3s;
+}
+
+/* Effetto hover sugli elementi della lista */
+#lista-iscritti li:hover {
+    background-color: #e0e0e0;
+    cursor: pointer;
+}
+
+/* Rimuove la linea inferiore dall'ultimo elemento */
+#lista-iscritti li:last-child {
+    border-bottom: none;
+}
+
+/* Stile per il pulsante "Torna indietro" */
+#btn-torna-indietro {
+    margin-top: 20px; /* Spazio sopra il pulsante */
+    padding: 15px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+    box-sizing: border-box; /* Assicura che il padding non influisca sulla larghezza */
+}
+
+/* Effetto hover sul pulsante "Torna indietro" */
+#btn-torna-indietro:hover {
+    background-color: #0056b3;
+}
+
+/* Responsività */
+@media (max-width: 599px) {
+    #btn-torna-indietro {
+        font-size: 14px;
+        padding: 12px;
+    }
+}
+
+#conferma-registrazione {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 80%;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    text-align: center;
+}
+
+/* Stile dell'icona di spunta */
+.icon-container {
+    margin: 20px 0;
+}
+
+/* Stile dell'icona di spunta */
+.check-icon {
+    width: 100px; /* Imposta la larghezza a 30 pixel */
+    height: 100px; /* Imposta l'altezza a 30 pixel */
+}
+
+.result {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
