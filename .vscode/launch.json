@@ -3,6 +3,13 @@
     "configurations": [
       {
         "type": "java",
+        "name": "Applicazione",
+        "request": "launch",
+        "mainClass": "prova.Applicazione",
+        "projectName": "ProgettoIngneriaSoftware_df40e357"
+      },
+      {
+        "type": "java",
         "name": "JavaFX Launch",
         "request": "launch",
         "mainClass": "Applicazione",

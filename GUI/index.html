@@ -52,7 +52,7 @@
     <div class="container" id="conferma-registrazione" style="display: none;">
         <h1>Registrazione Effettuata</h1>
         <div class="icon-container">
-            <img src="check-icon.png" alt="Spunta" class="check-icon">
+            <img src="img/check-icon.png" alt="Spunta" class="check-icon">
         </div>
         <div class="button-grid">
             <button type="button" class="btn" id="btn-seleziona-attivita-conferma-registrazione">Seleziona Attività Sportive</button>
@@ -63,8 +63,9 @@
     <!-- Finestra di errore registrazione -->
     <div class="container" id="errore-registrazione" style="display: none;">
         <h1>Errore Registrazione</h1>
+        <h3>Matricola già registrata</h3>
         <div class="icon-container">
-            <img src="error-icon.jpeg" alt="Spunta" class="check-icon">
+            <img src="img/error-icon.png" alt="Spunta" class="check-icon">
         </div>
         <div class="button-grid">
             <button type="button" class="btn" id="btn-prova-rinnovo">Prova Rinnovo Abbonamento</button>
@@ -93,11 +94,11 @@
         </form>
     </div>
 
-     <!-- Finestra di errore rinnovo -->
-     <div class="container" id="errore-rinnovo" style="display: none;">
+    <!-- Finestra di errore rinnovo -->
+    <div class="container" id="errore-rinnovo" style="display: none;">
         <h1>Errore Rinnovo</h1>
         <div class="icon-container">
-            <img src="error-icon.jpeg" alt="Spunta" class="check-icon">
+            <img src="img/error-icon.png" alt="Spunta" class="check-icon">
         </div>
         <div class="button-grid">
             <button type="button" class="btn" id="btn-fine-errore-rinnovo">Fine</button>
@@ -128,7 +129,7 @@
     <div class="container" id="conferma-disiscrizione" style="display: none;">
         <h1>Disiscrizione Effettuata</h1>
         <div class="icon-container">
-            <img src="check-icon.png" alt="Spunta" class="check-icon">
+            <img src="img/check-icon.png" alt="Spunta" class="check-icon">
         </div>
         <div class="button-grid">
             <button type="button" class="btn" id="btn-fine-conferma-disiscrizione">Fine</button>
@@ -139,7 +140,7 @@
     <div class="container" id="errore-disiscrizione" style="display: none;">
         <h1>Errore Disiscrizione</h1>
         <div class="icon-container">
-            <img src="error-icon.jpeg" alt="Spunta" class="check-icon">
+            <img src="img/error-icon.png" alt="Spunta" class="check-icon">
         </div>
         <div class="button-grid">
             <button type="button" class="btn" id="btn-fine-errore-disiscrizione">Fine</button>
@@ -158,6 +159,10 @@
     <div class="container" id="calcolo-retta" style="display: none;">
         <h1>Calcolo del Costo della Retta Mensile</h1>
         <form id="form-calcolo-retta">
+            <div class="form-group">
+                <label for="matricola">Matricola:</label>
+                <input type="text" id="matricola" name="matricola" required>
+            </div>
             <div class="form-group">
                 <label>Seleziona le attività:</label>
                 <div>
@@ -178,13 +183,22 @@
                 <p id="risultato-testo">200$[esempio]</p>
             </div>
             <div class="button-grid">
-                <button type="button" class="btn" id="btn-calcola-retta">Calcola Retta</button>
+                <button type="submit" class="btn" id="btn-calcola-retta">Calcola Retta</button>
                 <button type="button" class="btn" id="btn-annulla-calcolo-retta">Annulla</button>
             </div>
         </form>
     </div>
 
-
+    <!-- Finestra di warning matricola -->
+    <div class="container" id="warning-matricola" style="display: none;">
+        <h1>Matricola Inesistente</h1>
+        <div class="icon-container">
+            <img src="img/warning-icon.png" alt="Spunta" class="check-icon">
+        </div>
+        <div class="button-grid">
+            <button type="button" class="btn" id="btn-fine-warning-matricola">Fine</button>
+        </div>
+    </div>    
 
 
 
@@ -272,7 +286,7 @@
     <div class="container" id="conferma-acquisto" style="display: none;">
         <h1>Acquisto Effettuato</h1>
         <div class="icon-container">
-            <img src="check-icon.png" alt="Spunta" class="check-icon">
+            <img src="img/check-icon.png" alt="Spunta" class="check-icon">
         </div>
         <div class="button-grid">
             <button type="button" class="btn" id="btn-fine-conferma-acquisto">Fine</button>

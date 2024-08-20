@@ -1,5 +1,7 @@
-// [COMPILA CON]: javac --module-path javafx-sdk-22.0.2/lib --add-modules javafx.controls,javafx.web Applicazione.java
-// [ESEGUI CON]: java --module-path javafx-sdk-22.0.2/lib --add-modules javafx.controls,javafx.web Applicazione
+// [COMPILA CON]: javac --module-path javafx-sdk-22.0.2/lib --add-modules javafx.controls,javafx.web prova/Applicazione.java
+// [ESEGUI CON]: java --module-path javafx-sdk-22.0.2/lib --add-modules javafx.controls,javafx.web prova.Applicazione
+package prova;
+
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
@@ -10,7 +12,11 @@ import netscape.javascript.JSObject;
 
 import java.io.File;
 
+import prova.JavaBridge;
+
 public class Applicazione extends Application {
+
+    private JavaBridge javaBridge;
 
     @Override
     public void start(Stage primaryStage) {
@@ -31,14 +37,14 @@ public class Applicazione extends Application {
         // Carica il file HTML
         File htmlFile = new File("GUI/index.html");
         webEngine.load(htmlFile.toURI().toString());
-        //loadHTML("GUI/index.html");
 
         // Imposta il bridge dopo il caricamento della pagina
         webEngine.getLoadWorker().stateProperty().addListener((obs, oldState, newState) -> {
             if (newState.toString().equals("SUCCEEDED")) {
                 System.out.println("Page loaded successfully, bridge should be set.");
-                JSObject window = (JSObject) webEngine.executeScript("window");
-                window.setMember("javaApp", new JavaBridge());
+                JSObject javascriptObject = (JSObject) webEngine.executeScript("window");
+                javaBridge = new JavaBridge();
+                javascriptObject.setMember("javaBridge",  javaBridge);
             }
         });
 
@@ -67,16 +73,7 @@ public class Applicazione extends Application {
         primaryStage.show();
     }
 
-    // Classe interna per gestire le chiamate JavaScript
-    public class JavaBridge {
-        public void loadRegistrazione() {
-            System.out.println("javaApp->loadRegistrazione()");
-        }
-
-        public void tornaDashboard() {
-            System.out.println("javaApp->tornaDashboard()");
-        }
-    }
+    
 
     public static void main(String[] args) {
         launch(args);

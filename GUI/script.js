@@ -30,6 +30,8 @@ const confermaAcquisto = document.getElementById('conferma-acquisto');
 const erroreRinnovo = document.getElementById('errore-rinnovo');
 const confermaDisiscrizione = document.getElementById('conferma-disiscrizione');
 const erroreDisiscrizione = document.getElementById('errore-disiscrizione');
+const warningMatricola = document.getElementById('warning-matricola');
+
 
 // Bottone conferma stampa lista
 const btnConfermaStampaListe = document.getElementById('btn-conferma-stampa-liste');
@@ -38,6 +40,7 @@ const btnConfermaStampaListe = document.getElementById('btn-conferma-stampa-list
 const formRegistrazione = document.getElementById('form-registrazione');
 const formRinnovo = document.getElementById('form-rinnovo');
 const formDisiscrizione = document.getElementById('form-disiscrizione');
+const formCalcolaRetta = document.getElementById('form-calcolo-retta');
 
 
 // Bottoni Fine
@@ -47,6 +50,7 @@ const btnFineConfermaAcquisto = document.getElementById('btn-fine-conferma-acqui
 const btnFineErroreRinnovo = document.getElementById('btn-fine-errore-rinnovo');
 const btnFineConfermaDisiscrizione = document.getElementById('btn-fine-conferma-disiscrizione');
 const btnFineErroreDisiscrizione = document.getElementById('btn-fine-errore-disiscrizione');
+const btnFineWarningMatricola = document.getElementById('btn-fine-warning-matricola');
 
 // Bottoni "Torna Indietro"
 const btnTornaIndietro = document.getElementById('btn-torna-indietro');
@@ -66,6 +70,8 @@ const btnProvaRinnovo = document.getElementById('btn-prova-rinnovo');
 btnRegistrazione.addEventListener('click', () => {
     dashboard.style.display = 'none';
     registrazione.style.display = 'block';
+
+    window.javaBridge.prova();
 });
 
 // Gestione del click su "Rinnovo Abbonamenti"
@@ -211,10 +217,10 @@ btnConfermaStampaListe.addEventListener('click', () => {
 formRegistrazione.addEventListener('submit', (event) => {
     event.preventDefault(); // Previene l'invio del modulo
 
-    // Nasconde la finestra di registrazione e mostra la finestra di conferma
     registrazione.style.display = 'none';
-    //confermaRegistrazione.style.display = 'block';
-    erroreRegistrazione.style.display = 'block';
+    confermaRegistrazione.style.display = 'block';
+    //erroreRegistrazione.style.display = 'block';
+    //btnProvaRinnovo.style.display = 'none';
 });
 
 // Gestione del click su "Conferma" nella Rinnovo Abbonamenti
@@ -231,12 +237,17 @@ formRinnovo.addEventListener('submit', (event) => {
 formDisiscrizione.addEventListener('submit', (event) => {
     event.preventDefault(); // Previene l'invio del modulo
 
-    // Nasconde la finestra di registrazione e mostra la finestra di conferma
     disiscrizione.style.display = 'none';
-    //confermaDisiscrizione.style.display = 'block';
-    erroreDisiscrizione.style.display = 'block';
+    confermaDisiscrizione.style.display = 'block';
+    //erroreDisiscrizione.style.display = 'block';
 });
 
+formCalcolaRetta.addEventListener('submit', (event) => {
+    event.preventDefault(); // Previene l'invio del modulo
+
+    calcoloRetta.style.display = 'none';
+    warningMatricola.style.display = 'block';
+});
 
 
 // Gestione del click su "Fine" nella finestra di conferma registrazione
@@ -279,4 +290,10 @@ btnFineErroreDisiscrizione.addEventListener('click', () => {
     // Nasconde la finestra di conferma e mostra la dashboard
     erroreDisiscrizione.style.display = 'none';
     dashboard.style.display = 'block';
+});
+
+// Gestione del click su "Fine" nella finestra di warning matricola
+btnFineWarningMatricola.addEventListener('click', () => {
+    warningMatricola.style.display = 'none';
+    calcoloRetta.style.display = 'block';
 });
