@@ -162,24 +162,6 @@ public class DBManager {
         }
     }
 
-    // Metodo per abbonare un utente ad un'attività
-//    public boolean insertSubscription(int matricola, int attivitaId) {
-//    	SystemLog.println("DBManager : entered insertSubscription()");
-//    	
-//        String query = "INSERT INTO Abbonamenti (matricola, attivita_id) VALUES (?, ?)";
-//        
-//        try (PreparedStatement stmt = connection.prepareStatement(query)) {
-//            stmt.setInt(1, matricola);
-//            stmt.setInt(2, attivitaId);
-//            stmt.executeUpdate();
-//            return true;
-//        } 
-//        catch (SQLException e) {
-//            SystemLog.println("Error entering subscription: " + e.getMessage());
-//            return false;
-//        }
-//    }
-
     // Metodo per ottenere i clienti
     public List<DBCustomer> getAllCustomers() {
     	SystemLog.println("DBManager : entered getAllCustomers()");

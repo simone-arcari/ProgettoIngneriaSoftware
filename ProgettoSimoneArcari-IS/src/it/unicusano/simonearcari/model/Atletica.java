@@ -5,14 +5,6 @@ import it.unicusano.simonearcari.SystemLog;
 public class Atletica extends AttivitaSportiva {
 	
 	private static Atletica instance;
-
-//	public Atletica(ActivityID id, String nome) {
-//		super(id, nome);
-//	}
-//	
-//	public Atletica(ActivityID id, String nome, Double prezzo) {
-//		super(id, nome, prezzo);
-//	}
 	
 	private Atletica() {
 		super();

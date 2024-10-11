@@ -63,6 +63,4 @@ public abstract class AttivitaSportiva {
 		
 		this.prezzo = prezzo;
 	}
-	
-	
 }

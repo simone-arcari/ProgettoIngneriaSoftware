@@ -14,7 +14,7 @@ public class Subscription {
 	// Istanze Singleton delle attivita sportive
 	private Nuoto attivitaNuoto; 
 	private Atletica attivitaAtletica;
-	private Bodybuilding attivitaBodybuilding; 
+	private Bodybuilding attivitaBodybuilding;
 	
 	public Subscription(boolean nuoto, boolean atletica, boolean bodybuilding) {
 		SystemLog.println("Subscription : entered Subscription()");
